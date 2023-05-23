@@ -17,4 +17,6 @@ class PostRepository:
         return post
 
     def _generate_next_id(self):
+        if not self.store: #checking first if the list is empty
+            return 1
         return max([post.id for post in self.store]) + 1
